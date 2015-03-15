@@ -20,22 +20,29 @@ def fibonacci(maxValue=None, length=None):
       a = b - a
       yield b
 
-def factor(n, duplicates=True):
-  lastFactor = 0
-  while n > 1:
-    i = 2
-    while n % i != 0:
-      i += 1
-    n /= i
+def factor(n, duplicates=True, primesOnly=True):
+  if primesOnly:
+    lastFactor = 0
+    while n > 1:
+      i = 2
+      while n % i != 0:
+        i += 1
+      n /= i
     
-    if duplicates:
-      lastFactor = i
-      yield i
-    elif lastFactor != i:
-      lastFactor = i
-      yield i
-    else:
-      continue
+      if duplicates:
+        lastFactor = i
+        yield i
+      elif lastFactor != i:
+        lastFactor = i
+        yield i
+      else:
+        continue
+
+  else:
+    # Note: will not return n as a factor of n
+    for i in range(1, n):
+      if n % i == 0:
+        yield i
 
 def isPalindrome(n):
   digits = str(n)
