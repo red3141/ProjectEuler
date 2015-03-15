@@ -8,4 +8,5 @@ def P3():
     maxFactor = max(maxFactor, i)
   return maxFactor
 
-print P3()
+if __name__ == "__main__":
+  print P3()

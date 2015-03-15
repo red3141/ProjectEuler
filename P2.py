@@ -8,4 +8,5 @@ def P2():
       total += i
   return total
 
-print P2()
+if __name__ == "__main__":
+  print P2()
