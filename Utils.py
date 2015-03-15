@@ -36,3 +36,7 @@ def factor(n, duplicates=True):
       yield i
     else:
       continue
+
+def isPalindrome(n):
+  digits = str(n)
+  return digits == digits[::-1]
