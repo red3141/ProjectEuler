@@ -18,7 +18,7 @@ def infiniteFibonacciTest():
 def lengthFibonacciTest():
   expected = [1, 2, 3, 5, 8, 13, 21]
 
-  fib = fibonacci(length = 7)
+  fib = fibonacci(length = len(expected))
   actual = []
   for i in fib:
     actual.append(i)
@@ -82,6 +82,65 @@ def isPalindromeOddLengthTest():
   if not isPalindrome("1234567890987654321"):
     print "ERROR: isPalindromeOddLengthTest FAILED!"
 
+def isNotPrimeTest1():
+  if isPrime(91):
+    print "ERROR: isNotPrimeTest1 FAILED!"
+
+def isNotPrimeTest2():
+  if isPrime(1):
+    print "ERROR: isNotPrimeTest2 FAILED!"
+
+def isPrimeTest1():
+  if not isPrime(2):
+    print "ERROR: isPrimeTest1 FAILED!"
+
+def isPrimeTest2():
+  if not isPrime(97):
+    print "ERROR: isPrimeTest2 FAILED!"
+
+def nextPrimeAfterTest():
+  if nextPrimeAfter(5) != 7:
+    print "ERROR: nextPrimeAfterTest FAILED!"
+
+def infinitePrimesTest():
+  expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
+
+  p = primes()
+  actual = []
+  counter = 0
+  for i in p:
+    actual.append(i)
+    counter += 1
+    if counter == len(expected):
+      break
+
+  if actual != expected:
+    print "ERROR: infinitePrimesTest FAILED!"
+
+def lengthPrimesTest():
+  expected = [2, 3, 5, 7, 11, 13, 17]
+
+  p = primes(length = len(expected))
+  actual = []
+  for i in p:
+    actual.append(i)
+  
+  if actual != expected:
+    print "ERROR: lengthPrimesTest FAILED!"
+
+def maxValuePrimesTest():
+  expected = [2, 3, 5, 7]
+
+  p = primes(maxValue = 7)
+  actual = []
+  for i in p:
+    actual.append(i)
+
+  if actual != expected:
+    print "ERROR: maxValuePrimesTest FAILED!"
+
+
+
 
 if __name__ == "__main__":
   infiniteFibonacciTest()
@@ -93,3 +152,11 @@ if __name__ == "__main__":
   isNotPalindromeTest()
   isPalindromeEvenLengthTest()
   isPalindromeOddLengthTest()
+  isNotPrimeTest1()
+  isNotPrimeTest2()
+  isPrimeTest1()
+  isPrimeTest2()
+  nextPrimeAfterTest()
+  infinitePrimesTest()
+  lengthPrimesTest()
+  maxValuePrimesTest()
