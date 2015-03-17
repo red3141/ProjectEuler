@@ -1,5 +1,7 @@
 import math
 
+from collections import defaultdict
+
 ########## FIBONACCI ##########
 
 def fibonacci(maxValue=None, length=None):
@@ -27,6 +29,9 @@ def fibonacci(maxValue=None, length=None):
 ########## FACTORING ##########
 
 def factor(n, duplicates=True, primesOnly=True):
+  if n < 1:
+    return
+
   if primesOnly:
     lastFactor = 0
     while n > 1:
@@ -49,6 +54,17 @@ def factor(n, duplicates=True, primesOnly=True):
     for i in range(1, n):
       if n % i == 0:
         yield i
+
+def numberOfFactors(n):
+  factors = factor(n)
+  primeFactors = defaultdict(int)
+  for f in factors:
+    primeFactors[f] += 1
+
+  if len(primeFactors.values()) == 0:
+    return 1
+
+  return reduce(lambda x, y : x*y, map(lambda x : x+1, primeFactors.values()))
 
 ########## IS PALINDROME ##########
 
@@ -104,3 +120,8 @@ def primes(maxValue=None, length=None):
 def readIntegerGrid(integers, width):
   intList = [int(x) for x in integers.split()]
   return [intList[i:i + width] for i in range(0, len(intList), width)]
+
+########## TRIANGLE NUMBERS ##########
+
+def triangle(n):
+  return (n * (n + 1)) / 2

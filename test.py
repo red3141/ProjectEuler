@@ -37,6 +37,17 @@ def maxValueFibonacciTest():
   if actual != expected:
     print "ERROR: maxValueFibonacciTest FAILED!"
 
+def factorZeroTest():
+  expected = []
+
+  factors = factor(0)
+  actual = []
+  for i in factors:
+    actual.append(i)
+
+  if actual != expected:
+    print "ERROR: factorZeroTest FAILED!"
+
 def primeFactorsDuplicatesTest():
   expected = [3, 3, 5, 5]
 
@@ -69,6 +80,14 @@ def allFactorsTest():
 
   if actual != expected:
     print "ERROR: allFactorsTest FAILED!"
+
+def numberOfFactorsTest1():
+  if numberOfFactors(1) != 1:
+    print "ERROR: numberOfFactorsTest1 FAILED!"
+
+def numberOfFactorsTest2():
+  if numberOfFactors(2 * 2 * 2 * 3 * 3 * 5) != 24:
+    print "ERROR: numberOfFactorsTest2 FAILED!"
 
 def isNotPalindromeTest():
   if isPalindrome("1234567890"):
@@ -147,6 +166,9 @@ def readIntegerGridTest():
   if actual != expected:
     print "ERROR: readIntegerGridTest FAILED!"
 
+def triangleTest():
+  if triangle(10) != 55:
+    print "ERROR: triangleTest FAILED!"
 
 
 if __name__ == "__main__":
@@ -155,7 +177,10 @@ if __name__ == "__main__":
   maxValueFibonacciTest()
   primeFactorsDuplicatesTest()
   primeFactorsNoDuplicatesTest()
+  factorZeroTest()
   allFactorsTest()
+  numberOfFactorsTest1()
+  numberOfFactorsTest2()
   isNotPalindromeTest()
   isPalindromeEvenLengthTest()
   isPalindromeOddLengthTest()
@@ -168,3 +193,4 @@ if __name__ == "__main__":
   lengthPrimesTest()
   maxValuePrimesTest()
   readIntegerGridTest()
+  triangleTest()
