@@ -139,6 +139,13 @@ def maxValuePrimesTest():
   if actual != expected:
     print "ERROR: maxValuePrimesTest FAILED!"
 
+def readIntegerGridTest():
+  expected = [[1, 2, 3, 4, 5],
+              [6, 7, 8, 9, 0],
+              [9, 8, 7, 6, 5]]
+  actual = readIntegerGrid("1 2 3 4 5 6 7 8 9 0 9 8 7 6 5", 5)
+  if actual != expected:
+    print "ERROR: readIntegerGridTest FAILED!"
 
 
 
@@ -160,3 +167,4 @@ if __name__ == "__main__":
   infinitePrimesTest()
   lengthPrimesTest()
   maxValuePrimesTest()
+  readIntegerGridTest()

@@ -95,3 +95,12 @@ def primes(maxValue=None, length=None):
       retVal = nextPrime
       nextPrime = nextPrimeAfter(nextPrime)
       yield retVal
+
+########## READING IN GRID OF NUMBERS ##########
+
+# integers is a string containing a sequence of ints separated by spaces
+# This function does not check that grid contains a multiple of width
+# integers.
+def readIntegerGrid(integers, width):
+  intList = [int(x) for x in integers.split()]
+  return [intList[i:i + width] for i in range(0, len(intList), width)]
