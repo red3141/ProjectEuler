@@ -179,6 +179,10 @@ def readTriangleTest():
   if actual != expected:
     print "ERROR: readTriangleTest FAILED!"
 
+def sumOfDigitsTest():
+  if sumOfDigits(135790) != 25:
+    print "ERROR: sumOfDigitsTest FAILED!"
+
 if __name__ == "__main__":
   infiniteFibonacciTest()
   lengthFibonacciTest()
@@ -203,3 +207,4 @@ if __name__ == "__main__":
   readIntegerGridTest()
   triangleTest()
   readTriangleTest()
+  sumOfDigitsTest()

@@ -142,3 +142,8 @@ def readIntegerTriangle(integers):
     intList = intList[counter:]
     counter += 1
   return result
+
+########## SUM OF DIGITS ##########
+
+def sumOfDigits(n):
+  return sum(int(x) for x in str(n))
