@@ -170,6 +170,14 @@ def triangleTest():
   if triangle(10) != 55:
     print "ERROR: triangleTest FAILED!"
 
+def readTriangleTest():
+  expected = [[1],
+              [2, 3],
+              [4, 5, 6],
+              [7, 8, 9, 0]]
+  actual = readIntegerTriangle("1 2 3 4 5 6 7 8 9 0")
+  if actual != expected:
+    print "ERROR: readTriangleTest FAILED!"
 
 if __name__ == "__main__":
   infiniteFibonacciTest()
@@ -194,3 +202,4 @@ if __name__ == "__main__":
   maxValuePrimesTest()
   readIntegerGridTest()
   triangleTest()
+  readTriangleTest()

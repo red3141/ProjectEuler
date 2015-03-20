@@ -125,3 +125,20 @@ def readIntegerGrid(integers, width):
 
 def triangle(n):
   return (n * (n + 1)) / 2
+
+########## READING IN TRIANGLE OF NUMBERS ##########
+
+# integers is a string containing a sequence of ints separated by spaces
+# This function does not check that the number of integers is a triangle
+# number.
+# The result is an array of arrays, where each element of the outer array
+# has length (index + 1).
+def readIntegerTriangle(integers):
+  intList = [int(x) for x in integers.split()]
+  result = []
+  counter = 1
+  while intList:
+    result.append(intList[:counter])
+    intList = intList[counter:]
+    counter += 1
+  return result
