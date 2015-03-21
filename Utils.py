@@ -30,30 +30,52 @@ def fibonacci(maxValue=None, length=None):
 
 def factor(n, duplicates=True, primesOnly=True):
   if n < 1:
-    return
+    return []
 
+  sqrtn = int(math.sqrt(n))
+
+  factors = []
   if primesOnly:
-    lastFactor = 0
     while n > 1:
-      i = 2
-      while n % i != 0:
-        i += 1
-      n /= i
-    
-      if duplicates:
-        lastFactor = i
-        yield i
-      elif lastFactor != i:
-        lastFactor = i
-        yield i
-      else:
-        continue
+      f = None
+      for i in range(2, sqrtn + 1):
+        if n % i == 0:
+          f = i
+          break
+      if f is None:
+        f = n
+
+      if duplicates or not factors or f != factors[-1]:
+        factors.append(f)
+      n /= f
+    return factors
 
   else:
-    # Note: will not return n as a factor of n
-    for i in range(1, n):
-      if n % i == 0:
-        yield i
+    if n == 1:
+      return [1]
+
+    primeFactors = factor(n)
+
+    # Find the number of times each prime factor is repeated.
+    primeFactorCounts = defaultdict(int)
+    for p in primeFactors:
+      primeFactorCounts[p] += 1
+
+    # For each prime factor of n, find the powers of that prime that are
+    # factors of n.
+    listsOfPowersOfPrimeFactors = (
+        [[prime ** i for i in range(count + 1)]
+          for (prime, count) in primeFactorCounts.items()])
+
+    # Select one prime power factor of n for each prime factor of n, and
+    # multiply them together to get a factor of n. Except do all possibilities
+    # of that.
+    # It is guaranteed that no factor will be produced more than once, so the
+    # result is a list of all factors of n.
+    return sorted(
+        reduce(lambda x, y: [a * b for a in x for b in y],
+          listsOfPowersOfPrimeFactors))
+
 
 def numberOfFactors(n):
   factors = factor(n)

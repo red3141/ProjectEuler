@@ -38,47 +38,19 @@ def maxValueFibonacciTest():
     print "ERROR: maxValueFibonacciTest FAILED!"
 
 def factorZeroTest():
-  expected = []
-
-  factors = factor(0)
-  actual = []
-  for i in factors:
-    actual.append(i)
-
-  if actual != expected:
+  if factor(0) != []:
     print "ERROR: factorZeroTest FAILED!"
 
 def primeFactorsDuplicatesTest():
-  expected = [3, 3, 5, 5]
-
-  factors = factor(225)
-  actual = []
-  for i in factors:
-    actual.append(i)
-
-  if actual != expected:
+  if factor(225) != [3, 3, 5, 5]:
     print "ERROR: primeFactorsDuplicatesTest FAILED!"
 
 def primeFactorsNoDuplicatesTest():
-  expected = [3, 5]
-
-  factors = factor(225, duplicates = False)
-  actual = []
-  for i in factors:
-    actual.append(i)
-
-  if actual != expected:
+  if factor(225, duplicates = False) != [3, 5]:
     print "ERROR: primeFactorsNoDuplicatesTest FAILED!"
 
 def allFactorsTest():
-  expected = [1, 3, 5, 9, 15, 25, 45, 75]
-
-  factors = factor(225, primesOnly = False)
-  actual = []
-  for i in factors:
-    actual.append(i)
-
-  if actual != expected:
+  if factor(225, primesOnly = False) != [1, 3, 5, 9, 15, 25, 45, 75, 225]:
     print "ERROR: allFactorsTest FAILED!"
 
 def numberOfFactorsTest1():
