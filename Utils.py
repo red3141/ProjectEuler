@@ -36,18 +36,18 @@ def factor(n, duplicates=True, primesOnly=True):
 
   factors = []
   if primesOnly:
+    i = 2
     while n > 1:
-      f = None
-      for i in range(2, sqrtn + 1):
-        if n % i == 0:
-          f = i
-          break
-      if f is None:
-        f = n
+      sqrtn = math.sqrt(n)
+      if i > sqrtn:
+        # In this case, n is prime, so n is the only prime factor of n.
+        i = n
+      while n % i == 0:
+        if duplicates or not factors or i != factors[-1]:
+          factors.append(i)
+        n /= i
+      i += 1
 
-      if duplicates or not factors or f != factors[-1]:
-        factors.append(f)
-      n /= f
     return factors
 
   else:

@@ -45,6 +45,10 @@ def primeFactorsDuplicatesTest():
   if factor(225) != [3, 3, 5, 5]:
     print "ERROR: primeFactorsDuplicatesTest FAILED!"
 
+def primeFactorsOfPrimeTest():
+  if factor(97) != [97]:
+    print "ERROR: primeFactorsOfPrimeTest FAILED!"
+
 def primeFactorsNoDuplicatesTest():
   if factor(225, duplicates = False) != [3, 5]:
     print "ERROR: primeFactorsNoDuplicatesTest FAILED!"
@@ -160,6 +164,7 @@ if __name__ == "__main__":
   lengthFibonacciTest()
   maxValueFibonacciTest()
   primeFactorsDuplicatesTest()
+  primeFactorsOfPrimeTest()
   primeFactorsNoDuplicatesTest()
   factorZeroTest()
   allFactorsTest()
