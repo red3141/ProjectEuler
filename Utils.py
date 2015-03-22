@@ -1,4 +1,3 @@
-import math
 import random
 
 from collections import defaultdict
@@ -33,15 +32,12 @@ def factor(n, duplicates=True, primesOnly=True):
   if n < 1:
     return []
 
-  sqrtn = int(math.sqrt(n))
-
   factors = []
   if primesOnly:
     i = 2
     while n > 1:
-      sqrtn = math.sqrt(n)
-      if i > sqrtn:
-        # In this case, n is prime, so n is the only prime factor of n.
+      if isPrime(n):
+        # In this case, n is the only prime factor of n, so shortcut.
         i = n
       while n % i == 0:
         if duplicates or not factors or i != factors[-1]:
