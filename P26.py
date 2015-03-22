@@ -9,7 +9,7 @@ def P26():
   longestCycle = 0
   bestD = 0
   for d in range(999, 0, -1):
-    if longestCycle > d:
+    if longestCycle >= d:
       break
 
     # Use integers instead of floats because it's easier to get the digits
