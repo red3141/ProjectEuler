@@ -1,4 +1,5 @@
 import math
+import random
 
 from collections import defaultdict
 
@@ -96,14 +97,29 @@ def isPalindrome(n):
 
 ########## PRIME NUMBERS ##########
 
+# Test if n is likely prime using the Miller-Rabin test.
 def isPrime(n):
   if n <= 1:
     return False
-  if n == 2:
-    return True
-  for i in range(2, int(math.sqrt(n)) + 1):
-    if n % i == 0:
+
+  # Determine u and t such that n - 1 = u(2^t)
+  u = n - 1
+  t = 0
+  while u % 2 == 0:
+    t += 1
+    u /= 2
+
+  for _ in range(10):
+    x = random.randint(1, n - 1)
+    x0 = pow(x, u, n)
+    for i in range(t):
+      x1 = pow(x0, 2, n)
+      if x1 == 1 and x0 != 1 and x0 != n - 1:
+        return False
+      x0 = x1
+    if x0 != 1:
       return False
+
   return True
 
 def nextPrimeAfter(n):
