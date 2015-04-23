@@ -77,6 +77,14 @@ def isPalindromeOddLengthTest():
   if not isPalindrome("1234567890987654321"):
     print "ERROR: isPalindromeOddLengthTest FAILED!"
 
+def isPalindromeListTest():
+  if not isPalindrome([1, 2, 3, 2, 1]):
+    print "ERROR: isPalindromeListTest FAILED!"
+
+def isNotPalindromeListTest():
+  if isPalindrome([1, 2, 3]):
+    print "ERORR isNotPalindromeListTest FAILED!"
+
 def isNotPrimeTest1():
   if isPrime(91):
     print "ERROR: isNotPrimeTest1 FAILED!"
@@ -159,6 +167,22 @@ def sumOfDigitsTest():
   if sumOfDigits(135790) != 25:
     print "ERROR: sumOfDigitsTest FAILED!"
 
+def numberToBaseTest0():
+  if numberToBase(0, 2) != []:
+    print "ERROR: numberToBaseTest0 FAILED!"
+
+def numberToBaseTest1():
+  if numberToBase(1, 2) != [1]:
+    print "ERROR: numberToBaseTest1 FAILED!"
+
+def numberToBaseTest2():
+  if numberToBase(10, 2) != [1, 0, 1, 0]:
+    print "ERROR: numberToBaseTest2 FAILED!"
+
+def numberToBaseTest3():
+  if numberToBase(10, 3) != [1, 0, 1]:
+    print "ERROR: numberToBaseTest3 FAILED!"
+
 if __name__ == "__main__":
   infiniteFibonacciTest()
   lengthFibonacciTest()
@@ -173,6 +197,8 @@ if __name__ == "__main__":
   isNotPalindromeTest()
   isPalindromeEvenLengthTest()
   isPalindromeOddLengthTest()
+  isPalindromeListTest()
+  isNotPalindromeListTest()
   isNotPrimeTest1()
   isNotPrimeTest2()
   isPrimeTest1()
@@ -185,3 +211,7 @@ if __name__ == "__main__":
   triangleTest()
   readTriangleTest()
   sumOfDigitsTest()
+  numberToBaseTest0();
+  numberToBaseTest1();
+  numberToBaseTest2();
+  numberToBaseTest3();

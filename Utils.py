@@ -8,7 +8,7 @@ def fibonacci(maxValue=None, length=None):
   a = 0
   b = 1
   if length is not None and maxValue is not None:
-    print("Error! fibonacci: maxValue and length both not None!")
+    print "Error! fibonacci: maxValue and length both not None!"
     return
   if length is None and maxValue is None:
     while True:
@@ -88,6 +88,9 @@ def numberOfFactors(n):
 ########## IS PALINDROME ##########
 
 def isPalindrome(n):
+  if type(n) is list:
+    return n == n[::-1]
+
   digits = str(n)
   return digits == digits[::-1]
 
@@ -126,7 +129,7 @@ def nextPrimeAfter(n):
 
 def primes(maxValue=None, length=None):
   if length is not None and maxValue is not None:
-    print("Error! primes: maxValue and length both not None!")
+    print "Error! primes: maxValue and length both not None!"
     return
 
   nextPrime = 2
@@ -181,3 +184,18 @@ def readIntegerTriangle(integers):
 
 def sumOfDigits(n):
   return sum(int(x) for x in str(n))
+
+########## CHANGE BASE ##########
+
+def numberToBase(n, b):
+  if n < 0:
+    print "Error! numberToBase: number 0 or less!"
+    return
+  if b <= 1:
+    print "Error! numberToBase: base 1 or less!"
+
+  result = []
+  while n > 0:
+    result.append(n % b)
+    n /= b
+  return result[::-1]
